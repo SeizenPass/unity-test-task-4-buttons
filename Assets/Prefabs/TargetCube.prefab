@@ -113,7 +113,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 6969710165621261981}
   rigidbody: {fileID: 4814955837855569623}
-  movementSpeed: 5
+  movementSpeed: 10
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 8
   onKilled:
     m_PersistentCalls:
       m_Calls: []

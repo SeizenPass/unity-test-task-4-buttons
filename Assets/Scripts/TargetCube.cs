@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
@@ -9,6 +10,7 @@ namespace Scripts
         [SerializeField] private MeshRenderer meshRenderer;
         [SerializeField] private new Rigidbody rigidbody;
         [SerializeField] private float movementSpeed;
+        [SerializeField] private LayerMask wallLayer;
         
 
         public UnityEvent<int> onKilled;
@@ -37,9 +39,14 @@ namespace Scripts
         {
             if (_isMoving) return;
 
-            _direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+            ChangeDirection();
             
             _isMoving = true;
+        }
+
+        private void ChangeDirection()
+        {
+            _direction = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f));
         }
 
         private void SetColor(Color color)
@@ -54,6 +61,24 @@ namespace Scripts
         private void OnDestroy()
         {
             onKilled.Invoke(_number);
+        }
+
+        private void OnCollisionEnter(Collision other)
+        {
+            ChangeDirectionOnCollision(other);
+        }
+
+        private void ChangeDirectionOnCollision(Collision other)
+        {
+            if (LayerMaskUtils.CompareLayerMasks(wallLayer, other.gameObject.layer))
+            {
+                ChangeDirection();
+            }
+        }
+        
+        private void OnCollisionStay(Collision other)
+        {
+            ChangeDirectionOnCollision(other);
         }
     }
 }

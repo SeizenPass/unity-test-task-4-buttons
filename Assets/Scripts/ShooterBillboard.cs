@@ -20,8 +20,7 @@ namespace Scripts
 
         public void SetShooterText(int currentTarget)
         {
-            if (_showRoutine != null) StopCoroutine(_showRoutine);
-            _showRoutine = null;
+            KillRoutine();
             
             text.text = $"{prefix} {currentTarget} {postfix}";
             text.enabled = true;
@@ -33,6 +32,20 @@ namespace Scripts
                 yield return new WaitForSeconds(showTime);
                 text.enabled = false;
             }
+        }
+
+        public void ForceText(string newText)
+        {
+            KillRoutine();
+
+            text.enabled = true;
+            text.text = newText;
+        }
+
+        private void KillRoutine()
+        {
+            if (_showRoutine != null) StopCoroutine(_showRoutine);
+            _showRoutine = null;
         }
     }
 }

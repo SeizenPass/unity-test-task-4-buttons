@@ -18,6 +18,7 @@ namespace Scripts
 
         [Header("Events")] 
         public UnityEvent<int> onTargetShoot;
+        public UnityEvent onHit;
 
         private Vector3 BulletSpawnPosition => transform.position + bulletSpawnOffset;
 
@@ -56,6 +57,7 @@ namespace Scripts
             bullet.OnCubeHit += () =>
             {
                 _shoot = false;
+                onHit.Invoke();
             };
 
             _lastShootTime = Time.time;
