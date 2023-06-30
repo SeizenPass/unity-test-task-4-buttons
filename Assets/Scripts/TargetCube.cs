@@ -62,6 +62,7 @@ namespace Scripts
         private void ChangeDirection()
         {
             _direction = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f));
+            _direction.Normalize();
         }
 
         private void SetColor(Color color)
