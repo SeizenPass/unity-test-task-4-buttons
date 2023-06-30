@@ -26,6 +26,16 @@ namespace Scripts
             var indicator = Instantiate(indicatorPrefab, indicatorContainer);
             indicator.GetComponent<TextMeshProUGUI>().text = cube.Number.ToString();
             _cubeMap[cube.Number] = new CubePair(cube, indicator);
+            cube.onKilled.AddListener(EliminateCube);
+        }
+
+        private void EliminateCube(int number)
+        {
+            var pair = _cubeMap[number];
+            pair.Cube.onKilled.RemoveListener(EliminateCube);
+            Destroy(pair.Indicator.gameObject);
+            
+            _cubeMap.Remove(number);
         }
 
         private void Update()

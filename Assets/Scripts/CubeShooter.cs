@@ -43,7 +43,7 @@ namespace Scripts
 
         private void ShootRandomCube()
         {
-            if (Cubes.Count < 0) return;
+            if (Cubes.Count <= 0) return;
             int randomIndex = Random.Range(0, Cubes.Count);
 
             var target = Cubes[randomIndex];

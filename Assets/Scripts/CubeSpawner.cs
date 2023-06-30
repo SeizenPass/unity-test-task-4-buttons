@@ -50,9 +50,17 @@ namespace Scripts
                 
                 createdCube.Initialize(number);
                 
+                createdCube.onKilled.AddListener(OnCubeKilled);
+                
                 _cubes.Add(createdCube);
                 onCubeCreated.Invoke(createdCube);
             }
+        }
+
+        private void OnCubeKilled(int number)
+        {
+            var cube = _cubes.Find(x => x.Number == number);
+            _cubes.Remove(cube);
         }
 
         private Vector3 GetRandomSpawnPoint()

@@ -12,7 +12,6 @@ namespace Scripts
         [SerializeField] private float movementSpeed;
         [SerializeField] private LayerMask wallLayer;
         
-
         public UnityEvent<int> onKilled;
         
         private int _number;
@@ -42,6 +41,22 @@ namespace Scripts
             ChangeDirection();
             
             _isMoving = true;
+        }
+
+        public void BecomeKiller()
+        {
+            onKilled.Invoke(Number);
+
+            enabled = false;
+
+            gameObject.AddComponent<KillerCube>();
+        }
+
+        public void ForceDeath()
+        {
+            onKilled.Invoke(Number);
+            
+            Destroy(gameObject);
         }
 
         private void ChangeDirection()
