@@ -2,7 +2,7 @@
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Scripts
+namespace Scripts.Cubes
 {
     public class KillerCube : MonoBehaviour
     {

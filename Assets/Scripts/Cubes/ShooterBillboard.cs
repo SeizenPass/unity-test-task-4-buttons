@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using TMPro;
 using UnityEngine;
 
-namespace Scripts
+namespace Scripts.Cubes
 {
     public class ShooterBillboard : MonoBehaviour
     {

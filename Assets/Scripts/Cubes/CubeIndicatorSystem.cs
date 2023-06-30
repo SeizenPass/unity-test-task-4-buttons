@@ -2,7 +2,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Scripts
+namespace Scripts.Cubes
 {
     public class CubeIndicatorSystem : MonoBehaviour
     {

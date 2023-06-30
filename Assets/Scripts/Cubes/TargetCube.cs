@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Scripts.Utils;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
-namespace Scripts
+namespace Scripts.Cubes
 {
     public class TargetCube : MonoBehaviour
     {

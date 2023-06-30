@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
-namespace Scripts
+namespace Scripts.Cubes
 {
     public class CubeSpawner : MonoBehaviour
     {

@@ -1,7 +1,6 @@
-﻿using Unity.VisualScripting;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Scripts
+namespace Scripts.Cubes
 {
     public class CubeManipulator : MonoBehaviour
     {
